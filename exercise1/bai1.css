@@ -1,0 +1,128 @@
+.main .footer .body .section .nav * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+/* Style the header */
+
+header {
+    background-color: #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    text-align: left;
+}
+
+
+/* Create two columns/boxes that floats next to each other */
+
+nav {
+    float: left;
+    width: 30%;
+    height: 300px;
+    /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+}
+
+
+/* Style the list inside the menu */
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    background-color: #ccc;
+    height: 300px;
+    /* only for demonstration, should be removed */
+}
+
+
+/* Clear floats after the columns */
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+a.hovertext {
+    position: relative;
+    width: 200px;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+a.hovertext::after {
+    margin-top: 150px;
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 20px;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+}
+
+a.hovertext:hover::after,
+a.hovertext:focus::after {
+    opacity: 1.0;
+}
+
+
+/* Style the footer */
+
+footer {
+    background-color: black;
+    padding: 10px;
+    text-align: left;
+    color: white;
+    margin-top: 10px;
+    height: 200px;
+}
+
+.img-positioned,
+.over-positioned {
+    position: absolute;
+}
+
+.img-positioned {
+    z-index: 1;
+}
+
+.over-positioned {
+    z-index: 2;
+}
+
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+
+@media (max-width: 600px) {
+    nav,
+    article {
+        width: 100%;
+        height: auto;
+    }
+}
